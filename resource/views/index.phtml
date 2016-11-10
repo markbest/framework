@@ -2,8 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $title;?></title>
+    <title>{$title}</title>
+
+    <link rel="icon" href="{static_path}/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{static_path}/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
-
+    <div class="article-list-container">
+        <ul>
+            {foreach $articles as $article}
+            <li>
+                <h3>{$article['title']}</h3>
+                <p>{$article['content']}</p>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+</body>
 </html>

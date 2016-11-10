@@ -1,4 +1,5 @@
 <?php
+
 namespace Lib\View;
 
 use BadMethodCallException;
@@ -8,12 +9,12 @@ use InvalidArgumentException;
 use Lib\View\Parser;
 
 class View{
-    const VIEW_BASH_PATH = '/resource/views/';
-    public $view;
-    public $data;
+    static $template_path = '/resource/views/';
+    public $template_view;
+    public $template_data;
 
     public function __construct($view){
-        $this->view = $view;
+        $this->template_view = $view;
     }
 
     public static function make($viewName = null){
@@ -31,11 +32,11 @@ class View{
 
     private static function getFilePath($viewName){
         $file_path = str_replace('.','/',$viewName);
-        return BASE_PATH . self::VIEW_BASH_PATH . $file_path . '.phtml';
+        return BASE_PATH . self::$template_path . $file_path . '.phtml';
     }
 
     public function with($key, $value = null){
-        $this->data[$key] = $value;
+        $this->template_data[$key] = $value;
         return $this;
     }
 
@@ -47,6 +48,7 @@ class View{
     }
 
     public function load(){
-        Parser::parse($this->data,$this->view);
+        $parser = new Parser($this->template_view, $this->template_data);
+        $parser->parse();
     }
 }
