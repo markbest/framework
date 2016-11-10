@@ -7,16 +7,21 @@ use Lib\Helper\Url;
 class Cache{
     private $cache_path;
     private $cache_time;
+    private $cache_file;
     private $cache_file_name;
     private $cache_file_content;
 
-    public function __construct($file){
+    public function __construct($file)
+    {
+        $this->cache_file = $file;
         $this->cache_path = Url::assetCache();
         $this->cache_time = 3600;
         $this->cache_file_name = md5($file);
+        $this->checkNeedRefresh();
     }
 
-    public function loadCache(){
+    public function loadCache()
+    {
         if(!$this->checkExpire()){
             return $this->cache_file_content;
         }else{
@@ -24,7 +29,8 @@ class Cache{
         }
     }
 
-    public function checkExpire(){
+    public function checkExpire()
+    {
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
         if(file_exists($cache_file)){
             $this->cache_file_content = file_get_contents($cache_file);
@@ -36,6 +42,14 @@ class Cache{
             }
         }else{
             return true;
+        }
+    }
+
+    public function checkNeedRefresh()
+    {
+        $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
+        if(filemtime($this->cache_file) > filemtime($cache_file)){
+            $this->deleteCacheFile();
         }
     }
 

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title><?php echo $title; ?></title>
 
-    <link rel="icon" href="<?php echo $this->url->assetStatic();?>/favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="<?php echo $this->url->assetStatic();?>/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="<?php echo $this->url->assetStatic();?>/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo $this->url->assetStatic();?>/favicon.ico" type="image/x-icon" />
+    <link type="text/css" href="<?php echo $this->url->assetStatic();?>/css/app.css" />
 </head>
 <body>
     <div class="article-list-container">
