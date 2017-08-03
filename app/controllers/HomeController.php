@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 use Lib\View\View;
 use App\Models\Article;
 

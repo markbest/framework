@@ -33,12 +33,18 @@ class Route{
     public static $patterns = array('{id}' => '[0-9]+');
 
     /**
+     * controller namespace
+     * @var string
+     */
+    public static $controller_namespace = 'App\Controllers';
+
+    /**
      * Route Magic Methods
      * @param $method
      * @param $params
      */
     public static function __callStatic($method, $params){
-        $url = dirname($_SERVER['PHP_SELF']).'/'.$params[0];
+        $url = dirname($_SERVER['PHP_SELF']) . $params[0];
         $callback = $params[1];
 
         array_push(self::$routes, $url);
@@ -56,7 +62,7 @@ class Route{
         $searches = array_keys(static::$patterns);
         $replaces = array_values(static::$patterns);
 
-        self::$routes = preg_replace('/\/+/', '/', self::$routes);
+        self::$routes = str_replace('\\/', '/', self::$routes);
         $found_route = false;
 
         if(in_array($url, self::$routes)){
@@ -71,7 +77,7 @@ class Route{
                         $last = end($parts);
                         $segments = explode('@', $last);
 
-                        /* Instanitate controller */
+                        /* Initialize controller */
                         if(class_exists($segments[0])){
                             $controller = new $segments[0]();
 
@@ -90,7 +96,7 @@ class Route{
                 }
             }
         }else{
-            foreach(self::$routes as $key=>$route){
+            foreach(self::$routes as $key => $route){
                 if(strpos($route, '{id}') !== false){
                     $route = str_replace($searches, $replaces, $route);
                 }
@@ -107,7 +113,7 @@ class Route{
                             $last = end($parts);
                             $segments = explode('@', $last);
 
-                            /* Instanitate controller */
+                            /* Initialize controller */
                             if(class_exists($segments[0])){
                                 $controller = new $segments[0]();
 

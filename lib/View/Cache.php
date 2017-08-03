@@ -84,8 +84,10 @@ class Cache{
     public function checkNeedRefresh()
     {
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
-        if(filemtime($this->cache_file) > filemtime($cache_file)){
-            $this->deleteCacheFile();
+        if(file_exists($cache_file)){
+            if(filemtime($this->cache_file) > filemtime($cache_file)){
+                $this->deleteCacheFile();
+            }
         }
     }
 
