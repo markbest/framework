@@ -21,7 +21,7 @@ class Url{
      * @return string
      */
     public function assetStatic(){
-        return $this->asset() . DIRECTORY_SEPARATOR . 'resource' . DIRECTORY_SEPARATOR . 'static';
+        return $this->asset() . '/resource/static';
     }
 
     /**
@@ -29,6 +29,6 @@ class Url{
      * @return string
      */
     public static function assetCache(){
-        return BASE_PATH . DIRECTORY_SEPARATOR . 'resource' . DIRECTORY_SEPARATOR . 'cache';
+        return BASE_PATH . '/resource/cache';
     }
 }

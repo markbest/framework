@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Require The Artisan Application
+|--------------------------------------------------------------------------
+|
+| When we run the console application, the current CLI command will be
+| executed in this console and the response sent back to a terminal
+| or another output device for the developers. Here goes nothing!
+|
+*/
+require __DIR__ . '/vendor/autoload.php';
+
+$cli = new Lib\Cli\Cli($argv);
+$cli->command();
+
+?>
