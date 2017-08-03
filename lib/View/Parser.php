@@ -6,21 +6,42 @@ use Lib\Helper\Url;
 use Lib\View\Cache;
 
 class Parser{
+    /**
+     * @var Url
+     */
     private $url;
+
+    /**
+     * @var
+     */
     private $file;
+
+    /**
+     * @var
+     */
     private $parameter;
+
+    /**
+     * @var \Lib\View\Cache
+     */
     private $cache;
 
-    public function __construct($file, $parameters)
-    {
+    /**
+     * Parser constructor.
+     * @param $file
+     * @param $parameters
+     */
+    public function __construct($file, $parameters){
         $this->url = new Url;
         $this->file = $file;
         $this->parameter = $parameters;
         $this->cache = new Cache($this->file);
     }
 
-    public function parse()
-    {
+    /**
+     * Parse tpl tags
+     */
+    public function parse(){
         if(count($this->parameter)){
             extract($this->parameter);
         }

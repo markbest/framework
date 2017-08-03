@@ -1,9 +1,12 @@
 <?php
 
+/**
+ * Framework database config
+ */
 return [
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'mark',
+    'database'  => 'mark_blog',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8',

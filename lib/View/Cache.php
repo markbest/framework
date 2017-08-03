@@ -5,14 +5,41 @@ namespace Lib\View;
 use Lib\Helper\Url;
 
 class Cache{
+    /**
+     * cache file path
+     * @var string
+     */
     private $cache_path;
+
+    /**
+     * cache file time
+     * @var int
+     */
     private $cache_time;
+
+    /**
+     * cache file handle
+     * @var
+     */
     private $cache_file;
+
+    /**
+     * cache file name
+     * @var string
+     */
     private $cache_file_name;
+
+    /**
+     * cache file content
+     * @var
+     */
     private $cache_file_content;
 
-    public function __construct($file)
-    {
+    /**
+     * Cache constructor.
+     * @param $file
+     */
+    public function __construct($file){
         $this->cache_file = $file;
         $this->cache_path = Url::assetCache();
         $this->cache_time = 3600;
@@ -20,8 +47,11 @@ class Cache{
         $this->checkNeedRefresh();
     }
 
-    public function loadCache()
-    {
+    /**
+     * Get cache content
+     * @return string
+     */
+    public function loadCache(){
         if(!$this->checkExpire()){
             return $this->cache_file_content;
         }else{
@@ -29,8 +59,11 @@ class Cache{
         }
     }
 
-    public function checkExpire()
-    {
+    /**
+     * Check cache is expire or not
+     * @return bool
+     */
+    public function checkExpire(){
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
         if(file_exists($cache_file)){
             $this->cache_file_content = file_get_contents($cache_file);
@@ -45,6 +78,9 @@ class Cache{
         }
     }
 
+    /**
+     * Check cache is need refresh or not
+     */
     public function checkNeedRefresh()
     {
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
@@ -53,11 +89,18 @@ class Cache{
         }
     }
 
+    /**
+     * Generate new cache
+     * @param $content
+     */
     public function createCache($content){
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
         file_put_contents($cache_file, $content);
     }
 
+    /**
+     * Delete old cache
+     */
     public function deleteCacheFile(){
         $cache_file = $this->cache_path . DIRECTORY_SEPARATOR . $this->cache_file_name;
         unlink($cache_file);

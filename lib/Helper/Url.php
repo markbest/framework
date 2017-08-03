@@ -3,6 +3,10 @@
 namespace Lib\Helper;
 
 class Url{
+    /**
+     * Get assign url
+     * @return string
+     */
     public function asset(){
         return sprintf(
             "%s://%s%s",
@@ -12,10 +16,18 @@ class Url{
         );
     }
 
+    /**
+     * Get assign static dir
+     * @return string
+     */
     public function assetStatic(){
         return $this->asset() . DIRECTORY_SEPARATOR . 'resource' . DIRECTORY_SEPARATOR . 'static';
     }
 
+    /**
+     * Get assign cache dir
+     * @return string
+     */
     public static function assetCache(){
         return BASE_PATH . DIRECTORY_SEPARATOR . 'resource' . DIRECTORY_SEPARATOR . 'cache';
     }

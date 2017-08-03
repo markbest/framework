@@ -1,4 +1,5 @@
 <?php
+
 namespace Lib\Route;
 
 /**
@@ -7,15 +8,36 @@ namespace Lib\Route;
  * @method static Route any(string $route, Callable $callback)
  */
 class Route{
+    /**
+     * router array
+     * @var array
+     */
     public static $routes = array();
-    public static $methods = array();
-    public static $callbacks = array();
-    public static $patterns = array(
-        '{id}' => '[0-9]+'
-    );
 
-    public static function __callStatic($method, $params)
-    {
+    /**
+     * router methods array
+     * @var array
+     */
+    public static $methods = array();
+
+    /**
+     * router callbacks array
+     * @var array
+     */
+    public static $callbacks = array();
+
+    /**
+     * router match patterns array
+     * @var array
+     */
+    public static $patterns = array('{id}' => '[0-9]+');
+
+    /**
+     * Route Magic Methods
+     * @param $method
+     * @param $params
+     */
+    public static function __callStatic($method, $params){
         $url = dirname($_SERVER['PHP_SELF']).'/'.$params[0];
         $callback = $params[1];
 
@@ -24,8 +46,10 @@ class Route{
         array_push(self::$callbacks, $callback);
     }
 
-    public static function dispatch()
-    {
+    /**
+     * Dispatch route
+     */
+    public static function dispatch(){
         $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
