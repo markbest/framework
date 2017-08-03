@@ -15,5 +15,3 @@ require __DIR__ . '/vendor/autoload.php';
 
 $cli = new Lib\Cli\Cli($argv);
 $cli->command();
-
-?>
