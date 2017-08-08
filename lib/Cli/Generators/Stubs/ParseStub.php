@@ -1,6 +1,6 @@
 <?php
 
-namespace Lib\Cli\Generators\Utils;
+namespace Lib\Cli\Generators\Stubs;
 
 class ParseStub
 {
@@ -8,7 +8,7 @@ class ParseStub
      * Stub file dir
      * @var string
      */
-    private $dir = 'lib/Cli/Generators/Stubs';
+    private $dir;
 
     /**
      * Stub file name
@@ -78,6 +78,7 @@ class ParseStub
             default:
                 break;
         }
+        $this->dir = __DIR__;
         $this->argument = $argument;
     }
 
