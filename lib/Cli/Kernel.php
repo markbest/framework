@@ -11,6 +11,7 @@ class Kernel
      */
     public $commands = [
         Generators\Commands\ModelMakeCommand::class,
-        Generators\Commands\ControllerMakeCommand::class
+        Generators\Commands\ControllerMakeCommand::class,
+        Generators\Commands\CommandMakeCommand::class
     ];
 }

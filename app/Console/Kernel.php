@@ -12,7 +12,6 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     public $commands = [
-        Commands\CreateUserCommand::class,
-        Commands\CreateArticleCommand::class
+        Commands\TestCommand::class
     ];
 }

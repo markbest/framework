@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
