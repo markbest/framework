@@ -2,19 +2,22 @@
 
 namespace App\Controllers;
 
-use Lib\View\View;
+use App\Controllers\Controller;
 use App\Models\Article;
 
-class HomeController{
+class HomeController extends Controller
+{
     public function index(){
-        View::make('index')->with('articles', Article::all())
-                           ->withTitle('Mark的私人PHP框架')
-                           ->load();
+        $this->render('index', [
+            'articles' => Article::all(),
+            'title' => 'Mark的私人PHP框架'
+        ]);
     }
 
     public function view($id){
-        View::make('article/view')->with('article', Article::find($id))
-                                  ->withTitle('Mark的私人PHP框架')
-                                  ->load();
+        $this->render('article.view', [
+            'article' => Article::find($id),
+            'title' => 'Mark的私人PHP框架'
+        ]);
     }
 }

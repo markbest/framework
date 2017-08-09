@@ -12,7 +12,7 @@ class View{
     /**
      * @var string
      */
-    static $template_path = '/resource/views/';
+    static $template_path = DIRECTORY_SEPARATOR . 'resource' . DIRECTORY_SEPARATOR .'views' . DIRECTORY_SEPARATOR;
 
     /**
      * @var
@@ -54,7 +54,7 @@ class View{
      * @return string
      */
     private static function getFilePath($viewName){
-        $file_path = str_replace('.','/',$viewName);
+        $file_path = str_replace('.', DIRECTORY_SEPARATOR, $viewName);
         return BASE_PATH . self::$template_path . $file_path . '.phtml';
     }
 
