@@ -1,7 +1,8 @@
 {
   "require": {
     "illuminate/database": "~5.0",
-    "symfony/console": "^3.3"
+    "symfony/console": "^3.3",
+    "monolog/monolog": "^1.23"
   },
   "autoload": {
     "psr-4": {
