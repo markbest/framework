@@ -32,13 +32,13 @@ class Console
     public function __construct(Kernel $kernel){
         $this->application = new Application();
         $this->kernel = $kernel;
-        $this->addExistCommands();
+        $this->loadExistCommands();
     }
 
     /**
      * add default exist commands to list
      */
-    public function addExistCommands(){
+    public function loadExistCommands(){
         $kernel = new Kernel();
         $commands = $kernel->commands;
         if(count($commands)){
