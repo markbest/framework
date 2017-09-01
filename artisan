@@ -21,7 +21,7 @@ use Component\Cli\Console;
 | Register The Console Application
 |--------------------------------------------------------------------------
 */
-$console = new Console(new App\Console\Kernel());
+$console = new Console(require __DIR__ . '/config/command.php');
 
 /*
 |--------------------------------------------------------------------------

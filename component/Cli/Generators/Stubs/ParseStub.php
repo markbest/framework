@@ -60,19 +60,19 @@ class ParseStub
             case 'model':
                 $this->name = 'model.stub';
                 $this->class_namespace = 'App\Models';
-                $this->target_dir = 'app'. DIRECTORY_SEPARATOR .'Models';
+                $this->target_dir = 'app'. DIRECTORY_SEPARATOR . 'Models';
                 $this->target_suffix = '';
                 break;
             case 'controller':
                 $this->name = 'controller.stub';
                 $this->class_namespace = 'App\Controllers';
-                $this->target_dir = 'app'. DIRECTORY_SEPARATOR .'Controllers';
+                $this->target_dir = 'app'. DIRECTORY_SEPARATOR . 'Controllers';
                 $this->target_suffix = 'Controller';
                 break;
             case 'command':
                 $this->name = 'command.stub';
-                $this->class_namespace = 'App\Console\Commands';
-                $this->target_dir = 'app'. DIRECTORY_SEPARATOR .'Console'. DIRECTORY_SEPARATOR.'Commands';
+                $this->class_namespace = 'App\Commands';
+                $this->target_dir = 'app'. DIRECTORY_SEPARATOR . 'Commands';
                 $this->target_suffix = 'Command';
                 break;
             default:

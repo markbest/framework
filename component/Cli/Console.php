@@ -2,7 +2,6 @@
 
 namespace Component\Cli;
 
-use Component\Cli\Kernel;
 use Symfony\Component\Console\Application;
 
 class Console
@@ -14,12 +13,6 @@ class Console
     private $application;
 
     /**
-     * Console kernel
-     * @var \Component\Cli\Kernel
-     */
-    private $kernel;
-
-    /**
      * Console Commands list
      * @var array
      */
@@ -29,30 +22,22 @@ class Console
      * Console constructor.
      * @param \Component\Cli\Kernel $kernel
      */
-    public function __construct(Kernel $kernel){
+    public function __construct($commands = []){
         $this->application = new Application();
-        $this->kernel = $kernel;
-        $this->loadExistCommands();
-    }
-
-    /**
-     * add default exist commands to list
-     */
-    public function loadExistCommands(){
-        $kernel = new Kernel();
-        $commands = $kernel->commands;
-        if(count($commands)){
+        if(is_array($commands) && count($commands)){
             foreach($commands as $command){
                 $this->commands[] = new $command();
             }
         }
+        $this->loadCommands();
     }
 
     /**
-     * Add Console Commands object
+     * Load commands to list
      */
-    public function addNewCommands(){
-        $commands = $this->kernel->commands;
+    public function loadCommands(){
+        $kernel = new \Component\Cli\Kernel();
+        $commands = $kernel->commands;
         if(count($commands)){
             foreach($commands as $command){
                 $this->commands[] = new $command();
@@ -65,7 +50,6 @@ class Console
      */
     public function run(){
         //Register commands
-        $this->addNewCommands();
         $this->application->addCommands($this->commands);
 
         //Run commands
