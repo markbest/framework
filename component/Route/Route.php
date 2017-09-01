@@ -36,7 +36,7 @@ class Route{
      * controller namespace
      * @var string
      */
-    public static $controller_namespace = 'App\Controllers';
+    public static $namespace = 'App\Controllers\\';
 
     /**
      * Route Magic Methods
@@ -78,8 +78,8 @@ class Route{
                         $segments = explode('@', $last);
 
                         /* Initialize controller */
-                        if(class_exists($segments[0])){
-                            $controller = new $segments[0]();
+                        if(class_exists($class = self::$namespace . $segments[0])){
+                            $controller = new $class();
 
                             /* Call method */
                             if(method_exists($controller, $segments[1])){
@@ -114,8 +114,8 @@ class Route{
                             $segments = explode('@', $last);
 
                             /* Initialize controller */
-                            if(class_exists($segments[0])){
-                                $controller = new $segments[0]();
+                            if(class_exists($class = self::$namespace . $segments[0])){
+                                $controller = new $class();
 
                                 /* Call method */
                                 if(method_exists($controller, $segments[1])){
