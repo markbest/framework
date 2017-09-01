@@ -22,7 +22,7 @@ class Parser{
     private $parameter;
 
     /**
-     * @var \Lib\View\Cache
+     * @var \Component\View\Cache
      */
     private $cache;
 

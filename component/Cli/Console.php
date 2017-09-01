@@ -15,7 +15,7 @@ class Console
 
     /**
      * Console kernel
-     * @var \Lib\Cli\Kernel
+     * @var \Component\Cli\Kernel
      */
     private $kernel;
 
@@ -27,7 +27,7 @@ class Console
 
     /**
      * Console constructor.
-     * @param \Lib\Cli\Kernel $kernel
+     * @param \Component\Cli\Kernel $kernel
      */
     public function __construct(Kernel $kernel){
         $this->application = new Application();
