@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use Lib\Cli\Kernel as ConsoleKernel;
+use Component\Cli\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {

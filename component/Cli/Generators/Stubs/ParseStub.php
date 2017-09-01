@@ -1,6 +1,6 @@
 <?php
 
-namespace Componet\Cli\Generators\Stubs;
+namespace Component\Cli\Generators\Stubs;
 
 class ParseStub
 {

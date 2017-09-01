@@ -2,7 +2,7 @@
 
 namespace Componet\View;
 
-use Componet\Helper\Url;
+use Component\Helper\Url;
 
 class Cache{
     /**

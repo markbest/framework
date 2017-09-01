@@ -1,6 +1,6 @@
 <?php
 
-namespace Componet\Cli;
+namespace Component\Cli;
 
 class Kernel
 {

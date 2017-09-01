@@ -1,12 +1,12 @@
 <?php
 
-namespace Componet\View;
+namespace Component\View;
 
 use BadMethodCallException;
 use UnexpectedValueException;
 use InvalidArgumentException;
 
-use Componet\View\Parser;
+use Component\View\Parser;
 
 class View{
     /**

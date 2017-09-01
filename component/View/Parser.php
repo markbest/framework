@@ -2,8 +2,8 @@
 
 namespace Componet\View;
 
-use Componet\Helper\Url;
-use Componet\View\Cache;
+use Component\Helper\Url;
+use Component\View\Cache;
 
 class Parser{
     /**

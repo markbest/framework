@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Lib\View\View;
+use Component\View\View;
 
 class Controller
 {
