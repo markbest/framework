@@ -1,6 +1,6 @@
 <?php
 
-use Lib\Route\Route;
+use Component\Route\Route;
 
 Route::get('/test', function(){
     echo "Hello World!";

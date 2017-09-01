@@ -1,6 +1,6 @@
 <?php
 
-namespace Componet\View;
+namespace Component\View;
 
 use Component\Helper\Url;
 
