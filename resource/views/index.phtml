@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{$title}</title>
-
     <link rel="icon" href="{static_path}/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="{static_path}/favicon.ico" type="image/x-icon" />
     <link type="text/css" href="{static_path}/css/app.css" />
@@ -13,7 +12,7 @@
         <ul>
             {foreach $articles as $article}
             <li>
-                <h3>{$article['title']}</h3>
+                <h5>{$article['title']}</h5>
                 <p>{$article['content']}</p>
             </li>
             {/foreach}
