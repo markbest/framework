@@ -1,9 +1,9 @@
 <?php
 
-namespace Lib\View;
+namespace Componet\View;
 
-use Lib\Helper\Url;
-use Lib\View\Cache;
+use Componet\Helper\Url;
+use Componet\View\Cache;
 
 class Parser{
     /**

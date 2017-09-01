@@ -1,6 +1,6 @@
 <?php
 
-namespace Lib\Helper;
+namespace Componet\Helper;
 
 class Url{
     /**

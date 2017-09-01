@@ -1,6 +1,6 @@
 <?php
 
-namespace Lib\Route;
+namespace Componet\Route;
 
 /**
  * @method static Route get(string $route, Callable $callback)

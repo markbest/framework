@@ -1,8 +1,8 @@
 <?php
 
-namespace Lib\View;
+namespace Componet\View;
 
-use Lib\Helper\Url;
+use Componet\Helper\Url;
 
 class Cache{
     /**

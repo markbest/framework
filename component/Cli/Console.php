@@ -1,8 +1,8 @@
 <?php
 
-namespace Lib\Cli;
+namespace Componet\Cli;
 
-use Lib\Cli\Kernel;
+use Componet\Cli\Kernel;
 use Symfony\Component\Console\Application;
 
 class Console
